@@ -1,5 +1,5 @@
 
-public class BoardMemoryRepository : IBoarRepository
+public class BoardMemoryRepository : IBoardRepository
 {
     private List<Board> boards = new List<Board>();
     public void Create(Board board)

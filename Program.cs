@@ -1,7 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddSingleton<IBoarRepository, BoardMemoryRepository>();
+builder.Services.AddTransient<IBoardRepository, BoardSqlRepository>();
+builder.Services.AddSingleton<IInterationRepository, InterationMemoryRepository>();
 
 var app = builder.Build();
 

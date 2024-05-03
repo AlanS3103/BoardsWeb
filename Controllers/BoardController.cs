@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Mvc;
 
 public class BoardController : Controller
 {
-    private readonly IBoarRepository repository;
+    private readonly IBoardRepository repository;
 
-    public BoardController(IBoarRepository repository){
+    public BoardController(IBoardRepository repository){
         this.repository = repository;
     }
     

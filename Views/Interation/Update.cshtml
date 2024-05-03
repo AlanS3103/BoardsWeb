@@ -1,0 +1,29 @@
+@model Interation
+
+<h2 style="margin-top: 20px">Iteration name</h2>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/board">Boards</a></li>
+        <li class="breadcrumb-item"><a href="/interation">Iterations</a></li>
+        <li class="breadcrumb-item active" aria-current="page">New Iteration</li>
+
+    </ol>
+</nav>
+
+<form class="row justify-content-center" action="/interation/update/@Model.InterationId" method="POST">
+      <div class="col-10">
+    <label for="inputAddress2" class="form-label">Name</label>
+    <input type="text" asp-for="Name" class="form-control" id="inputAddress2">
+  </div>  
+  <div class="col-md-5">
+    <label for="inputAddress" class="form-label">Start Date</label>
+    <input name="StartDate" type="date" class="form-control" id="inputAddress" value='@Model.StartDate.ToString("dd MM yyyy")'>
+  </div>
+  <div class="col-md-5">
+    <label for="inputAddress" class="form-label">End Date</label>
+    <input asp-for="EndDate" type="date" class="form-control" id="inputAddress">
+  </div>
+  <div class="col-10" style="margin-top: 10px">
+    <button type="submit" class="btn btn-primary">Save</button>
+  </div>
+</form>

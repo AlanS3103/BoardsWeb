@@ -1,3 +1,5 @@
+@model IEnumerable<Interation>
+
 <h2 style="margin-top: 20px">Board name</h2>
 
 <nav aria-label="breadcrumb">
@@ -15,28 +17,31 @@
         <th class="col-sm-2">Progress</th>
         <th class="col-sm-1"></th>
     </tr>
-    <tr>
-        <td>
-            <a href="/tasks">Iteration 1</a></span>
-        </td>
-        <td>20/02/2024</td>
-        <td>17/03/2024</td>
-        <td style="vertical-align: middle;">
-                <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="75"
-                    aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%">
-                        20/30</div>
+    @foreach(var interation in Model) 
+    {
+        <tr>
+            <td>
+                <a href="/tasks">@interation.Name</a>
+            </td>
+            <td>@interation.StartDate.ToShortDateString()</td>
+            <td>@interation.EndDate.ToShortDateString()</td>
+            <td style="vertical-align: middle;">
+                    <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="75"
+                        aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%">
+                            20/30</div>
+                    </div>
+                </td>
+            <td style="text-align: right;">
+                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                        <a href="/interation/update/@interation.InterationId" class="btn btn-sm btn-outline-primary"><i
+                                class="bi bi-pencil-square"></i>&nbsp;Editar</a>
+                        <a href="/interation/delete/@interation.InterationId" class="btn btn-sm btn-outline-danger"><i
+                                class="bi bi-trash"></i>&nbsp;Apagar</a>
                 </div>
             </td>
-        <td style="text-align: right;">
-            <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <button type="button" class="btn btn-sm btn-outline-primary"><i
-                            class="bi bi-pencil-square"></i>&nbsp;Editar</button>
-                    <button type="button" class="btn btn-sm btn-outline-danger"><i
-                            class="bi bi-trash"></i>&nbsp;Apagar</button>
-            </div>
-        </td>
-    </tr>
+        </tr>
+    }
 </table>
 
 <a href="/interation/create" class="btn btn-md btn-primary"><i
